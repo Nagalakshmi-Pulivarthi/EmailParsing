@@ -2,7 +2,7 @@ Flask==0.12.2
 gunicorn==19.7.1
 itsdangerous==0.24
 Jinja2==2.9.6
-Werkzeug==0.12.2
+Werkzeug==0.15.3
 Pandas==0.20.3
 beautifulsoup4==4.6.0
 bs4==0.0.1
