@@ -3,10 +3,9 @@
 import imaplib
 import email
 import urllib.request
-from os import getcwd
-from os.path import join
+
 from bs4 import BeautifulSoup as bs
-import io
+
 from credentials import details
 import pandas as pd
 from flask import Flask, Response
