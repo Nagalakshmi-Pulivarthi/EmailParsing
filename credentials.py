@@ -1,0 +1,1 @@
+details=['nagaP.stocks@gmail.com', 'stocks_2020']
