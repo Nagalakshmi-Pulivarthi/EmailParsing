@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # In[18]:
-from credentials import details
+
 import imaplib
 import email
 # Dependencies
@@ -12,6 +12,8 @@ from os import getcwd
 from os.path import join
 from bs4 import BeautifulSoup as bs
 import io
+from credentials import details
+
 mail = imaplib.IMAP4_SSL('imap.gmail.com')
 # imaplib module implements connection based on IMAPv4 protocol
 # mail.login('nagaP.stocks@gmail.com', 'stocks_2020')
