@@ -12,12 +12,16 @@ from os import getcwd
 from os.path import join
 from bs4 import BeautifulSoup as bs
 import io
-from credentials import details
+import os
+#from credentials import details
 
 mail = imaplib.IMAP4_SSL('imap.gmail.com')
 # imaplib module implements connection based on IMAPv4 protocol
-
-mail.login(details[0],details[1])
+senderEmail =os.environ['SenderEmail']
+senderPassword =os.environ['SenderPassword']
+receiverEmail=os.environ['ReceiverEmail']
+fromMail=os.environ['FromMail']
+mail.login(senderEmail,senderPassword)
 
 # In[19]:
 
@@ -27,7 +31,7 @@ mail.select('inbox') # Connected to inbox.
 
 # In[20]:
 
-result,data=mail.uid('search', "From "+ details[2] + ' Subject "Fly Morning News"', "ALL")
+result,data=mail.uid('search', "From "+fromMail  + ' Subject "Fly Morning News"', "ALL")
 i = len(data[0].split())
 latest_email_uid = data[0].split()[i-1] 
 result, email_data = mail.uid('fetch', latest_email_uid, '(RFC822)')
@@ -165,10 +169,10 @@ import os
 
 # In[ ]:
 
-contacts=[details[3]]
+contacts=[receiverEmail]
 msg=EmailMessage()
 msg['Subject']="Fly Morning News"
-msg['From']=details[0]
+msg['From']=senderEmail
 msg['To']=','.join(contacts)
 msg.set_content("Please find the files attached. Review and get back to me if any questions. -Naga")
 files=["tagetraised_3ormore.txt","tagetupgraded_3ormore.txt","today_flymorningnews.csv"]
@@ -178,7 +182,7 @@ for file in files:
         filename=f.name       
     msg.add_attachment(filedata,maintype="text/csv",subtype="octet-stream",filename=filename)
 with smtplib.SMTP_SSL("smtp.gmail.com",465) as smtp:
-    smtp.login(details[0],details[1])
+    smtp.login(senderEmail,senderPassword)
     smtp.send_message(msg)
 
     
