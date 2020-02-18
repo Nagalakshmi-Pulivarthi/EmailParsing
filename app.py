@@ -16,7 +16,7 @@ from credentials import details
 
 mail = imaplib.IMAP4_SSL('imap.gmail.com')
 # imaplib module implements connection based on IMAPv4 protocol
-# mail.login('nagaP.stocks@gmail.com', 'stocks_2020')
+
 mail.login(details[0],details[1])
 
 # In[19]:
