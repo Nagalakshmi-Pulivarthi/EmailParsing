@@ -7,7 +7,7 @@ import imaplib
 import email
 # Dependencies
 import urllib.request
-from lxml import html
+# from lxml import html
 from os import getcwd
 from os.path import join
 from bs4 import BeautifulSoup as bs
