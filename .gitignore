@@ -1,9 +1,3 @@
-credentials.py
+/credentials.*
 
 
-
-__pycache__
-
-
-
-.ipynb_checkpoints 
