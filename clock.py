@@ -2,8 +2,13 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 from emailapp import ProcessEmail
 import os
 
-hours=os.environ['Schedule'].split(":")[0]
-mins=os.environ['Schedule'].split(":")[1]
+schedule= os.environ['Schedule']
+print('Schedule:' + schedule)
+hours=schedule.split(':')[0]
+mins=schedule.split(':')[1]
+
+print('hours:' + hours)
+print('mins:' + mins)
 
 sched = BlockingScheduler()
 
