@@ -9,3 +9,4 @@ bs4==0.0.1
 requests ==2.18.4
 Flask-SQLAlchemy ==2.3.2
 APScheduler==3.0.0
+python==3.10.2
